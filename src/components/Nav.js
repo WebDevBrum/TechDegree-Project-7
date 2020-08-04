@@ -9,7 +9,7 @@ const Nav = () => {
     <Fragment>
       <nav className="main-nav">
         <ul>
-          <li><NavLink to='/bars'>Bars</NavLink></li>
+          <li><NavLink to='/guitars'>Guitars</NavLink></li>
           <li><NavLink to='/beer'>Beer</NavLink></li>
           <li><NavLink to='/burgers'>Burgers</NavLink></li>
         </ul>
