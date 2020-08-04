@@ -19,6 +19,7 @@ class App extends Component {
   state = {
 
     photos: [],
+    result: 'guitars',
     loading: true
 
   }
@@ -42,18 +43,25 @@ class App extends Component {
       });
   }
 
+  updateResult = (text) => { this.setState({ result: text }) };
+
+
+
   render() {
 
     return (
       <BrowserRouter>
         <div className="container">
-          <Search />
+          <Search data={this.state.result} search={this.updateResult} />
           <Nav />
+
           <Switch>
-            <Route exact path="/" render={() => (<Redirect to="/guitars" />)} />
-            <Route path="/guitars" render={() => <PhotoContainer title='Please come in!' search='guitars' query={this.performSearch} data={this.state.photos} />} />
-            <Route path="/beer" render={() => <PhotoContainer title='What can we get you?' search='beer' query={this.performSearch} data={this.state.photos} />} />
-            <Route path="/burgers" render={() => <PhotoContainer title='What would you like to eat?' search='burgers' query={this.performSearch} data={this.state.photos} />} />
+            <Route exact path="/" render={() => (<Redirect to="/guitars" loading={this.state.loading} />)} />
+            <Route path="/guitars" render={() => <PhotoContainer title='Make some noise!' search='guitars' query={this.performSearch} data={this.state.photos} loading={this.state.loading} />} />
+            <Route path="/beer" render={() => <PhotoContainer title='What can we get you?' search='beer' query={this.performSearch} data={this.state.photos} loading={this.state.loading} />} />
+            <Route path="/burgers" render={() => <PhotoContainer title='What would you like to eat?' search='burgers' query={this.performSearch} data={this.state.photos} loading={this.state.loading} />} />
+            <Route path="/search/:result" render={() => <PhotoContainer title='Search results' search={this.state.result} query={this.performSearch} data={this.state.photos} loading={this.state.loading} />} />
+
             <Route component={NotFound} />
           </Switch>
 

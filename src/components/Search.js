@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -10,14 +11,49 @@ class Search extends Component {
   }
 
   state = {
-
+    searchText: '',
+    loading: true
   };
+
+
+  onChange = (e) => {
+    this.setState({ searchText: e.target.value });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let searchInput = this.state.searchText;
+
+
+    let path = `/search/${searchInput}`;
+
+
+
+    this.props.search(searchInput);
+    this.props.history.push(path);
+    document.getElementById('search').reset();
+
+
+  }
+
+  componentDidUpdate(prevProps) {
+    let searchInput = this.state.searchText;
+    let pathArray = window.location.pathname.split('/');
+    let searchLoc = pathArray[2];
+
+
+    if (this.props.data !== searchLoc) {
+
+      this.props.search(searchLoc);
+    }
+
+  }
 
   render() {
     return (
       <Fragment>
-        <form className="search-form">
-          <input type="search" name="search" placeholder="Search" required />
+        <form className="search-form" id="search" onSubmit={this.handleSubmit}>
+          <input type="search" name="search" placeholder="Search" required onChange={this.onChange} />
           <button type="submit" className="search-button">
             <svg fill="#fff" height="24" viewBox="0 0 23 23" width="24" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -33,4 +69,4 @@ class Search extends Component {
 };
 
 
-export default Search;
+export default withRouter(Search);
