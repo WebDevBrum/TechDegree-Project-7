@@ -1,13 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Rocker&display=swap');
+
 body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-  color: #3f4850;
+  color: white;
+  
 }
 
+
+
+body:after {
+	content:"";
+	position:fixed;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	z-index:-1;
+	display:block;
+	background:url("bwmary-rebecca-elliott--V-ENAd192g-unsplash.jpg") no-repeat 50% 50%;
+	background-size:cover;
+}
+
+
+
 h2 {
-  font-size: 2em;
+  font-size: 3em;
   margin: 52px 0 40px;
+  text-shadow: 4px 4px 4px #000000;
   text-transform: capitalize;
+  font-family: 'New Rocker', cursive;
 }
 
 ul {
@@ -27,22 +49,25 @@ a {
 
 .search-form button {
   outline: none;
-  background-color: #438bbd;
+  background-color: rgb(98, 0, 255);
   border: none;
   padding: 0px 15px;
   border-radius: 0 0.35em 0.35em 0;
   cursor: pointer;
+  
 }
 
 input {
   font-size: 1em;
   width: 100%;
-  background-color: #edeff0;
+  background-color: black;
+  color: white;
   padding: 10px 15px;
-  border: 3px solid #d7dbdf;
+  border: 2px solid rgb(98, 0, 255);
   border-right: none;
   border-radius: 0.35em 0 0 0.35em;
   outline: none;
+  font-family: 'New Rocker', cursive;
 }
 
 .main-nav li {
@@ -52,16 +77,17 @@ input {
 
 .main-nav a {
   display: block;
-  background: #438bbd;
+  background: rgb(98, 0, 255);
   border-radius: 3px;
   padding: 5px;
   color: #fff;
+  font-family: 'New Rocker', cursive;
 }
 
 .main-nav .active,
 .main-nav a:hover,
 .search-form button:hover {
-  background-color: #275270;
+  background-color: black;
 }
 
 .photo-container ul {
@@ -96,6 +122,7 @@ input {
 @media only screen and (max-width: 767px)  {
   body {
     padding-top: 2em;
+    
   }
 
   .photo-container li {
@@ -106,6 +133,9 @@ input {
 @media only screen and (min-width: 768px)  {
   body {
     padding-top: 4em;
+    
+    
+    
   }
 
   .container {

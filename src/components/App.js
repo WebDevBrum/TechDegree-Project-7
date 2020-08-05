@@ -46,7 +46,7 @@ class App extends Component {
             <Route exact path="/" render={() => (<Redirect to="/guitars" loading={this.state.loading} />)} />
             <Route path="/guitars" render={() => <PhotoContainer title='Make some noise!' search='guitars' query={this.performSearch} data={this.state.photos} loading={this.state.loading} />} />
             <Route path="/beer" render={() => <PhotoContainer title='What can we get you?' search='beer' query={this.performSearch} data={this.state.photos} loading={this.state.loading} />} />
-            <Route path="/burgers" render={() => <PhotoContainer title='What would you like to eat?' search='burgers' query={this.performSearch} data={this.state.photos} loading={this.state.loading} />} />
+            <Route path="/burgers" render={() => <PhotoContainer title='Feeling Hungry?' search='burgers' query={this.performSearch} data={this.state.photos} loading={this.state.loading} />} />
             <Route path="/search/:result" render={() => <PhotoContainer title='Search results' search={this.state.result} query={this.performSearch} data={this.state.photos} loading={this.state.loading} />} />
             <Route component={InvalidRoute} />
           </Switch>
