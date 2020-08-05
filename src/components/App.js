@@ -20,6 +20,7 @@ class App extends Component {
   /* Requests data from the api and populates component state */
 
   performSearch = (query = 'guitars') => {
+    this.setState({ loading: true });
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&sort=relevance&is_getty=true&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
