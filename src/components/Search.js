@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 class Search extends Component {
 
   static propTypes = {
-
-
+    data: PropTypes.string,
+    search: PropTypes.func
   }
 
   state = {
@@ -15,38 +15,33 @@ class Search extends Component {
     loading: true
   };
 
+  /* Utilisation of search input data */
 
   onChange = (e) => {
     this.setState({ searchText: e.target.value });
   }
 
+  /* Updates page and url on form submission and clears form data */
+  /** Pushes path to history  */
+
   handleSubmit = (e) => {
     e.preventDefault();
     let searchInput = this.state.searchText;
-
-
     let path = `/search/${searchInput}`;
-
-
-
     this.props.search(searchInput);
     this.props.history.push(path);
     document.getElementById('search').reset();
-
-
   }
 
-  componentDidUpdate(prevProps) {
-    let searchInput = this.state.searchText;
+  /* For browser forward/back, syncs search value with page url*/
+
+  componentDidUpdate() {
     let pathArray = window.location.pathname.split('/');
     let searchLoc = pathArray[2];
 
-
     if (this.props.data !== searchLoc) {
-
       this.props.search(searchLoc);
     }
-
   }
 
   render() {
@@ -62,11 +57,9 @@ class Search extends Component {
             </svg>
           </button>
         </form>
-
       </Fragment>
     );
   }
 };
-
 
 export default withRouter(Search);

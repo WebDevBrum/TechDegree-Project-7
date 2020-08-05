@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import PropTypes from 'prop-types';
 
 /*Components*/
@@ -9,82 +8,65 @@ import NotFound from './NotFound';
 class PhotoContainer extends Component {
 
   static propTypes = {
-
-
+    search: PropTypes.string,
+    loading: PropTypes.bool,
+    title: PropTypes.string,
+    data: PropTypes.array
   }
 
   state = {
     loading: true,
-
   }
-
-  componentDidMount() {
-    this.search();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.search !== prevProps.search) {
-
-      this.search();
-    }
-
-  }
-
-
 
   search = () => {
     this.props.query(this.props.search);
   }
 
+  /* Peforms search on initial render , either on search results or navigation links*/
 
+  componentDidMount() {
+    this.search();
+  }
 
+  /* Forces rerender on prop update (eg from guitars to burgers)*/
+
+  componentDidUpdate(prevProps) {
+    if (this.props.search !== prevProps.search) {
+      this.search();
+    }
+  }
 
   render() {
 
-    console.log(this.props.search);
-    console.log(this.props.data);
-    const results = this.props.data;
-
+    const { loading, title, data } = this.props;
+    const results = data;
     let photos;
     let notFound;
-    if (results.length > 0) {
+
+    if (results.length > 6) {
       photos = results.map(photo => <Photo url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_m.jpg`} key={photo.id} />);
     } else {
       notFound = <NotFound />
     }
-    if (this.props.loading === false) {
+
+    if (loading === false) {
       return (
         <div className="photo-container">
-
-          <h2>{this.props.title}</h2>
-
-
+          <h2>{title}</h2>
           <ul>
-
             {photos}
-
-
           </ul>
           {notFound}
         </div>
-
       );
     } else {
       return (
         <div className="photo-container">
-
           <h2>'loading...'</h2>
-
-
         </div>
-
       );
-
-
-
     }
   }
 };
-
 
 export default PhotoContainer;
