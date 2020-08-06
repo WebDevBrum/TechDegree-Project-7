@@ -39,6 +39,7 @@ class Search extends Component {
     let pathArray = window.location.pathname.split('/');
     let search = pathArray.length - 1;
     let searchLoc = pathArray[search];
+    console.log(searchLoc);
 
     if (this.props.data !== searchLoc) {
       this.props.search(searchLoc);
