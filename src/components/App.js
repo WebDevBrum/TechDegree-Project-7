@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 /* Components */
@@ -39,7 +39,7 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter basename='/'>
         <div className="container">
           <Search data={this.state.result} search={this.updateResult} />
           <Nav />
@@ -52,7 +52,7 @@ class App extends Component {
             <Route component={InvalidRoute} />
           </Switch>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }

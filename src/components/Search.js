@@ -37,7 +37,8 @@ class Search extends Component {
 
   componentDidUpdate() {
     let pathArray = window.location.pathname.split('/');
-    let searchLoc = pathArray[2];
+    let search = pathArray.length - 1;
+    let searchLoc = pathArray[search];
 
     if (this.props.data !== searchLoc) {
       this.props.search(searchLoc);
