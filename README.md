@@ -1,3 +1,12 @@
+<img src='readme-images/treehouse.png' width='200' height='50' alt='treehouse logo'/>
+
+# TechDegree-Project-7
+
+## React Gallery App
+
+<img src='readme-images/front.jpeg' width='350' height='200' alt='project preview'/>
+
+
 This project requires a Flickr Non Commercial Api key
 
 https://www.flickr.com/services/apps/create/apply/
@@ -6,10 +15,11 @@ You’ll need to set up a config.js file in your project that imports your API k
 
 The config.js file should look something like this:
 
+```
 const apiKey = 'YOUR API KEY';
 export default apiKey;
+```
 
-=
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
