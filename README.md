@@ -6,6 +6,13 @@
 
 <img src='readme-images/front.jpeg' width='350' height='200' alt='project preview'/>
 
+## Live Demo
+
+https://react-gallery-on-netlify.netlify.app/guitars
+
+-------------------------------------------------
+
+## Getting Started 
 
 This project requires a Flickr Non Commercial Api key
 
