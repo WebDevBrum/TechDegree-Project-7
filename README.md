@@ -10,8 +10,6 @@
 
 https://react-gallery-on-netlify.netlify.app/guitars
 
--------------------------------------------------
-
 ## Getting Started 
 
 This project requires a Flickr Non Commercial Api key
